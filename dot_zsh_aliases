@@ -1,0 +1,43 @@
+# New
+alias ....='cd ....'
+alias ..='cd ..'
+alias ack-py="ack --type=python"
+alias be="bundle exec"
+alias check-pep8="find . -name '*.py*' -exec pep8 --ignore=E501 {} \;"
+alias cdt="cd \$(mktemp -d)"
+alias dc="docker-compose"
+alias debug='cat > /tmp/debug.html&&w3m /tmp/debug.html'
+alias doctest='python -m doctest'
+alias e=emacs
+alias ff='find . -iname'
+alias fgrep='fgrep --color=auto'
+alias fuck='$(thefuck $(fc -ln -1))'
+gs() {
+  git diff --numstat|awk -F"\t" '{a+=$1;r+=$2} END {print "+"a,"-"r}'
+}
+alias h="helm"
+alias jsonize="python -mjson.tool"
+alias k="kubectl"
+alias maild="sudo python -c 'import smtpd, asyncore; smtpd.DebuggingServer((\"127.0.0.1\", 25), None); asyncore.loop()'"
+alias manage="python manage.py"
+alias mgd="python manage.py dbshell"
+alias mgr="python manage.py runserver"
+alias mgs="python manage.py shell"
+alias pcat='pygmentize -O bg=dark'
+alias t='tmux a||tmux new-s'
+alias unquote="python -c 'import sys, urllib; print urllib.unquote_plus(sys.argv[1])'"
+alias vi='vim'
+
+# Overrides
+alias code="code-insiders"
+alias egrep='egrep --color=auto'
+alias emacs="emacs -nw"
+alias git="nocorrect git"
+alias grep='grep --color=auto'
+alias irssi='TERM=screen-256color irssi'
+alias mvim="mvim --remote-tab-silent"
+alias pep8='pep8 --show-source'
+alias play="nocorrect play"
+alias pip="pip3"
+alias python="python3"
+alias sbt="nocorrect sbt"

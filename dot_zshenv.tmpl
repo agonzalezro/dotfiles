@@ -1,0 +1,38 @@
+if [ -e ~/bin ]; then
+    export PATH=$PATH:~/bin
+fi
+
+if [ -e ~/terraform ]; then
+    export PATH=$PATH:~/terraform
+fi
+
+if [ -e /usr/local/heroku/bin ]; then
+    export PATH=$PATH:/usr/local/heroku/bin
+fi
+
+export GOPATH=~/go
+if [ -e $GOPATH/bin ]; then
+    export PATH=$PATH:$GOPATH/bin
+fi
+export GOPROXY="https://proxy.golang.org"
+
+if [ -e ~/elixir ]; then
+    export PATH=$PATH:~/elixir/bin
+fi
+
+if [ -e ~/.rbenv ]; then
+    export PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH
+fi
+
+export WORKON_HOME=$HOME/.virtualenvs
+export ANSIBLE_NOCOWS=1
+export EDITOR="vim"
+export DOCKER_BUILDKIT=1
+
+{{ if eq .chezmoi.os "linux" }}
+if [ -e ~/android-sdk-linux ]; then
+    export PATH=$PATH:~/android-sdk-linux/tools
+fi
+{{ end }}
+
+

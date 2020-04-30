@@ -1,0 +1,14 @@
+#!/bin/sh
+sudo true # asks for the password ASAP
+
+{{ if eq .chezmoi.os "linux" -}}
+    sudo apt-get update
+    sudo apt-get install python3-pip
+{{ else if eq .chezmoi.os "darwin" -}}
+    # Install brew if it doesn't exist
+    command -v brew >/dev/null 2>&1 || { CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; }
+    sudo easy_install pip
+{{ end -}}
+
+sudo python3 -m pip -q install --upgrade pip
+sudo python3 -m pip -q install flake8 ropevim pyjokes lolcat

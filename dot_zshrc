@@ -1,0 +1,84 @@
+#
+# OH-MY-ZSH
+#
+
+# We can't autoupdate with chezmoi, take a look here for more info:
+# https://github.com/twpayne/chezmoi/blob/master/docs/HOWTO.md#include-a-subdirectory-from-another-repository-like-oh-my-zsh
+DISABLE_AUTO_UPDATE="true"
+
+# This is the project page: https://github.com/robbyrussell/oh-my-zsh/
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="ys" # ys, kolo & zhann
+plugins=(
+    docker
+    dotenv
+    git
+    github
+    golang
+    jsontools
+    mercurial
+    osx
+    pep8
+    pip
+    python
+    safe-paste
+    tmux
+    vagrant
+    virtualenvwrapper
+)
+source $ZSH/oh-my-zsh.sh
+setopt nocorrect_all
+
+# Avoid zsh to complain about bg processes
+setopt NO_HUP
+setopt NO_CHECK_JOBS
+
+
+#
+# RUBY
+#
+CHRUBY_PATH="/usr/local/opt/chruby/share/chruby/chruby.sh"
+if [ -e "$CHRUBY_PATH" ]; then
+    source $CHRUBY_PATH
+    chruby 2.1.5
+fi
+
+CHRUBY_AUTO_PATH="/usr/local/opt/chruby/share/chruby/auto.sh"
+if [ -e "$CHRUBY_AUTO_PATH" ]; then
+    source $CHRUBY_AUTO_PATH
+fi
+
+eval "$(rbenv init - zsh)"
+
+
+#
+# GCLOUD
+#
+cloud_sdk=/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+if [ -e $cloud_sdk ]; then
+    source $cloud_sdk/path.zsh.inc
+    source $cloud_sdk/completion.zsh.inc
+fi
+
+
+#
+# MAC
+#
+iterm2_integration=~/.iterm2_shell_integration.zsh
+if [ -e $iterm2_integration ]; then
+    source ~/.iterm2_shell_integration.zsh
+fi
+
+source ~/.iterm2_shell_integration.zsh
+
+
+#
+# Aliases
+#
+. ~/.zsh_aliases
+
+
+#
+# motd
+#
+pyjoke 2> /dev/null|cowsay -f small 2> /dev/null|lolcat 2> /dev/null

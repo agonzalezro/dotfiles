@@ -1,0 +1,32 @@
+[user]
+    email = agonzalezro@gmail.com
+    name = Álex González
+    signingkey = 74F6172C
+
+[alias]
+    cm = commit -am
+    st = status
+    co = checkout
+    amend = commit --amend
+    lg1 = log --graph --abbrev-commit --decorate --date=relative \
+      --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate \
+      --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+
+[core]
+    excludesfile = /Users/alex/.gitignore_global
+
+[push]
+    default = simple
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[http]
+    sslVerify = false
+    
+[http "{{ (index (lastpass "GDT Bearer") 0).url }}"]
+    extraheader = AUTHORIZATION: Bearer {{ (index (lastpass "GDT Bearer") 0).password }}
