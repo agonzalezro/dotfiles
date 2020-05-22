@@ -15,6 +15,7 @@ alias fuck='$(thefuck $(fc -ln -1))'
 gs() {
   git diff --numstat|awk -F"\t" '{a+=$1;r+=$2} END {print "+"a,"-"r}'
 }
+alias -s git='git clone'
 alias h="helm"
 alias jsonize="python -mjson.tool"
 alias k="kubectl"
