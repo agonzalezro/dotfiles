@@ -1,0 +1,9 @@
+syntax on
+
+set expandtab
+set hlsearch
+set number
+set sw=4
+set ts=4
+
+colorscheme delek
