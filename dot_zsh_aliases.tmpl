@@ -42,3 +42,8 @@ alias play="nocorrect play"
 alias pip="pip3"
 alias python="python3"
 alias sbt="nocorrect sbt"
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Hide the ugly iterm2 mark, PS1 already shows that
+alias iterm2_prompt_mark=echo
+{{ end -}}
