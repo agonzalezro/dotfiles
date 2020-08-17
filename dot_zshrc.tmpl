@@ -22,7 +22,6 @@ plugins=(
     pip
     python
     safe-paste
-    tmux
     vagrant
     virtualenvwrapper
 )
@@ -48,7 +47,9 @@ if [ -e "$CHRUBY_AUTO_PATH" ]; then
     source $CHRUBY_AUTO_PATH
 fi
 
-eval "$(rbenv init - zsh)"
+if rbenv &> /dev/null ; then
+    eval "$(rbenv init - zsh)"
+fi
 
 
 #
@@ -65,7 +66,10 @@ fi
 # MAC
 #
 {{ if eq .chezmoi.os "darwin" -}}
-source ~/.iterm2_shell_integration.zsh
+iterm_integration=~/.iterm2_shell_integration.zsh
+if [ -e $iterm_integration ]; then
+    source $iterm_integration
+fi
 {{ end -}}
 
 #

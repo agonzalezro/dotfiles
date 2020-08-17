@@ -7,12 +7,15 @@ You will need to install git by yourself before being able to run chezmoi:
     sudo apt-get update && sudo apt-get install git
     # or
     xcode-select --install
+    
+You will also need `lpass` and `chezmoi`. In case of Mac:
+
+    brew install chezmoi lastpass-cli
 
 Then you are ready for applying your conf:
 
-    curl -sfL https://git.io/chezmoi | sh
     chezmoi init https://github.com/agonzalezro/dotfiles.git
-    chzemoi apply # or bin/chezmoi apply
+    chezmoi apply # or bin/chezmoi apply
 
 ## +info
 
