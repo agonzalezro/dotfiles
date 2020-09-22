@@ -28,8 +28,5 @@
 [http]
     sslVerify = false
     
-[http "{{ (index (lastpass "GDT Bearer") 0).url }}"]
-    extraheader = AUTHORIZATION: Bearer {{ (index (lastpass "GDT Bearer") 0).password }}
-
 [init]
-	defaultBranch = main
+    defaultBranch = main
