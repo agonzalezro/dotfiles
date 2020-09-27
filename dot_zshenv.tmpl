@@ -1,5 +1,8 @@
 if [ -e ~/bin ]; then
     export PATH=$PATH:~/bin
+    if [ -e ~/bin/platform-tools ]; then
+        export PATH=$PATH:~/bin/platform-tools
+    fi
 fi
 
 if [ -e ~/terraform ]; then
