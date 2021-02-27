@@ -32,38 +32,8 @@ setopt nocorrect_all
 setopt NO_HUP
 setopt NO_CHECK_JOBS
 
-
 #
-# RUBY
-#
-CHRUBY_PATH="/usr/local/opt/chruby/share/chruby/chruby.sh"
-if [ -e "$CHRUBY_PATH" ]; then
-    source $CHRUBY_PATH
-    chruby 2.1.5
-fi
-
-CHRUBY_AUTO_PATH="/usr/local/opt/chruby/share/chruby/auto.sh"
-if [ -e "$CHRUBY_AUTO_PATH" ]; then
-    source $CHRUBY_AUTO_PATH
-fi
-
-if rbenv &> /dev/null ; then
-    eval "$(rbenv init - zsh)"
-fi
-
-
-#
-# GCLOUD
-#
-cloud_sdk=/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
-if [ -e $cloud_sdk ]; then
-    source $cloud_sdk/path.zsh.inc
-    source $cloud_sdk/completion.zsh.inc
-fi
-
-
-#
-# MAC
+# iterm2 integration
 #
 {{ if eq .chezmoi.os "darwin" -}}
 iterm_integration=~/.iterm2_shell_integration.zsh
@@ -73,12 +43,6 @@ fi
 {{ end -}}
 
 #
-# Aliases
+# Import aliases
 #
 . ~/.zsh_aliases
-
-
-#
-# motd
-#
-pyjoke 2> /dev/null|cowsay -f small 2> /dev/null|lolcat -3 2> /dev/null

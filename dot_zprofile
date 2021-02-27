@@ -1,0 +1,18 @@
+# path_helpers overrides the order of $PATH, adding the changes ~/.zprofile avoids that
+# More info: https://www.zsh.org/mla/users/2015/msg00727.html
+
+append_to_path() { [ -e $1 ] && path+=($1) }
+prepend_to_path() { [ -e $1 ] && path=($1 $path) }
+
+append_to_path /usr/local/heroku/bin
+append_to_path ~/.gem/ruby/3.0.0/bin
+append_to_path ~/android-sdk-linux/tools
+append_to_path ~/bin
+append_to_path ~/bin/platform-tools
+append_to_path ~/elixir/bin
+append_to_path ~/go/bin
+append_to_path ~/terraform
+
+prepend_to_path /usr/local/opt/ruby/bin
+prepend_to_path ~/.rbenv/bin
+prepend_to_path ~/.rbenv/shims

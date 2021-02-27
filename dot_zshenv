@@ -1,0 +1,10 @@
+export ANSIBLE_NOCOWS=1
+
+export DOCKER_BUILDKIT=1
+
+export EDITOR="vim"
+
+export GOPROXY="https://proxy.golang.org"
+
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
+export WORKON_HOME=$HOME/.virtualenvs
