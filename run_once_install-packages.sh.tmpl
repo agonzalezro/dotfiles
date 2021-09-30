@@ -3,12 +3,11 @@ sudo true # asks for the password ASAP
 
 {{ if eq .chezmoi.os "linux" -}}
     sudo apt-get update
-    sudo apt-get install python3-pip
+    sudo apt-get install curl git autojump
 {{ else if eq .chezmoi.os "darwin" -}}
     # Install brew if it doesn't exist
     command -v brew >/dev/null 2>&1 || { CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; }
-    sudo easy_install pip
+    brew install autojump
 {{ end -}}
 
-sudo python3 -m pip -q install --upgrade pip
-sudo python3 -m pip -q install flake8 ropevim pyjokes lolcat virtualenvwrapper autojump
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf 2> /dev/null || true
