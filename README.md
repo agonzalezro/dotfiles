@@ -17,6 +17,13 @@ Then you are ready for applying your conf:
     chezmoi init https://github.com/agonzalezro/dotfiles.git
     chezmoi apply # or bin/chezmoi apply
 
+## Updating oh-my-zsh
+
+    rm -rf dot_oh-my-zsh
+    git clone https://github.com/ohmyzsh/ohmyzsh.git dot_oh-my-zsh
+    # There are some files that don't play nicely with chezmoi
+    rm -rf dot_oh-my-zsh/{.git,plugins/per-directory-history,themes/macovsky-ruby.zsh-theme}
+
 ## +info
 
 Take a look to chezmoi documentation: https://github.com/twpayne/chezmoi
