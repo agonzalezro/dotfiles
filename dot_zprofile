@@ -16,3 +16,5 @@ append_to_path ~/terraform
 prepend_to_path /usr/local/opt/ruby/bin
 prepend_to_path ~/.rbenv/bin
 prepend_to_path ~/.rbenv/shims
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
